@@ -7,8 +7,13 @@ import Study from "./assets/img/icon-study.svg";
 import Exercise from "./assets/img/icon-exercise.svg";
 import Social from "./assets/img/icon-social.svg";
 import Self_Care from "./assets/img/icon-self-care.svg";
+import { useState } from "react";
 
 function App() {
+  const [dailyButton, setDailyButton] = useState(false);
+  const [weeklyButton, setWeeklyButton] = useState(true);
+  const [monthlyButton, setMonthlyButton] = useState(false);
+
   const images = [Work, Play, Study, Exercise, Social, Self_Care];
   const colors = [
     "var(--orange)",
@@ -18,6 +23,24 @@ function App() {
     "var(--violet)",
     "var(--yellow)",
   ];
+
+  const chargeDaily = ( ) => {
+    !dailyButton ? setDailyButton(true) : null;
+    setMonthlyButton(false);
+    setWeeklyButton(false);
+  }
+
+  const chargeWeekly = ( ) => {
+    !weeklyButton ? setWeeklyButton(true) : null;
+    setDailyButton(false);
+    setMonthlyButton(false);
+  }
+
+  const chargeMonthly = ( ) => {
+   !monthlyButton ? setMonthlyButton(true) : null;
+    setDailyButton(false);
+    setWeeklyButton(false);
+  }
 
   return (
     <>
@@ -33,9 +56,9 @@ function App() {
             </div>
           </div>
           <div className="container__header__bottom">
-            <button>Daily</button>
-            <button>Weekly</button>
-            <button>Monthly</button>
+            <button onClick={chargeDaily} className={dailyButton ? 'active' : ''}>Daily</button>
+            <button onClick={chargeWeekly} className={weeklyButton ? 'active' : ''}>Weekly</button>
+            <button onClick={chargeMonthly} className={monthlyButton ? 'active' : ''}>Monthly</button>
           </div>
         </header>
         <section className="container__data">
@@ -58,12 +81,18 @@ function App() {
                       {data.title}
                     </p>
                     <p className="container__data__block__left__hours">
-                      {data.timeframes.weekly.current}hrs
+                      {dailyButton ? data.timeframes.daily.current :
+                      (monthlyButton ? data.timeframes.monthly.current :
+                      weeklyButton ? data.timeframes.weekly.current : '00')}hrs
                     </p>
                   </div>
                   <div className="container__data__block__right">
                     <img src={Ellipsis} alt="" />
-                    <p>Last Week - {data.timeframes.weekly.previous}hrs</p>
+                    <p>{dailyButton ? "Yesterday" :
+                    (monthlyButton ? "Last month" : "Last week")}
+                     - {dailyButton ? data.timeframes.daily.previous :
+                      (monthlyButton ? data.timeframes.monthly.previous :
+                      weeklyButton ? data.timeframes.weekly.previous : '00')}hrs</p>
                   </div>
                 </div>
               </div>
