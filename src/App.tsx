@@ -9,6 +9,7 @@ import Social from "./assets/img/icon-social.svg";
 import Self_Care from "./assets/img/icon-self-care.svg";
 import { useState } from "react";
 
+
 function App() {
   const [dailyButton, setDailyButton] = useState(false);
   const [weeklyButton, setWeeklyButton] = useState(true);
@@ -23,6 +24,8 @@ function App() {
     "var(--violet)",
     "var(--yellow)",
   ];
+
+
 
   const chargeDaily = ( ) => {
     !dailyButton ? setDailyButton(true) : null;

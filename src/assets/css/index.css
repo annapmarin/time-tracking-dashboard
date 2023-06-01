@@ -220,12 +220,12 @@ html {
 .container__data__block__right p {
   font-weight: 300;
   color: var(--pale-blue);
+  font-size: 0.9rem;
 }
 @media (min-width: 992px) {
   .container__data__block__right p {
     text-align: left;
     margin-top: 0.5555555556rem;
-    font-size: 0.9rem;
   }
 }
 

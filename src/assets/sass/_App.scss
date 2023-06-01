@@ -208,11 +208,11 @@ html {
         p {
           font-weight: 300;
           color: var(--pale-blue);
+          font-size: 0.9rem;
 
           @include lg {
             text-align: left;
             margin-top: rem(10);
-            font-size: 0.9rem;
           }
         }
       }
