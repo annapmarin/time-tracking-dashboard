@@ -178,6 +178,10 @@ html {
   padding: 1.6666666667rem;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+}
+.container__data__block:hover {
+  background-color: hsl(236, 46%, 31%);
 }
 @media (min-width: 992px) {
   .container__data__block {
@@ -201,6 +205,10 @@ html {
 }
 .container__data__block__right img {
   margin-bottom: 1.1111111111rem;
+  cursor: pointer;
+}
+.container__data__block__right img:hover {
+  filter: brightness(200%);
 }
 @media (min-width: 992px) {
   .container__data__block__right img {

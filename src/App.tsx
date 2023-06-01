@@ -83,16 +83,23 @@ function App() {
                     <p className="container__data__block__left__hours">
                       {dailyButton ? data.timeframes.daily.current :
                       (monthlyButton ? data.timeframes.monthly.current :
-                      weeklyButton ? data.timeframes.weekly.current : '00')}hrs
+                      weeklyButton ? data.timeframes.weekly.current : '00')}
+                      {dailyButton ? (data.timeframes.daily.current === 1 ? 'hr' : 'hrs') : null}
+                      {monthlyButton ? (data.timeframes.monthly.current === 1 ? 'hr' : 'hrs') : null}
+                      {weeklyButton ? (data.timeframes.weekly.current === 1 ? 'hr' : 'hrs') : null}
                     </p>
                   </div>
                   <div className="container__data__block__right">
                     <img src={Ellipsis} alt="" />
-                    <p>{dailyButton ? "Yesterday" :
-                    (monthlyButton ? "Last month" : "Last week")}
-                     - {dailyButton ? data.timeframes.daily.previous :
+                    <p>{dailyButton ? "Yesterday " :
+                    (monthlyButton ? "Last month " : "Last week ")}
+                    - {dailyButton ? data.timeframes.daily.previous :
                       (monthlyButton ? data.timeframes.monthly.previous :
-                      weeklyButton ? data.timeframes.weekly.previous : '00')}hrs</p>
+                      weeklyButton ? data.timeframes.weekly.previous : '00')}
+                      {dailyButton ? (data.timeframes.daily.previous === 1 ? 'hr' : 'hrs') : null}
+                      {monthlyButton ? (data.timeframes.monthly.previous === 1 ? 'hr' : 'hrs') : null}
+                      {weeklyButton ? (data.timeframes.weekly.previous === 1 ? 'hr' : 'hrs') : null}
+                      </p>
                   </div>
                 </div>
               </div>

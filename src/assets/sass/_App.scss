@@ -162,6 +162,12 @@ html {
       padding: rem(30);
       align-items: center;
       justify-content: space-between;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: hsl(236, 46%, 31%);
+      }
+
 
       @include lg {
         width: rem(250);
@@ -186,6 +192,11 @@ html {
 
         img {
           margin-bottom: rem(20);
+          cursor: pointer;
+
+          &:hover {
+            filter: brightness(200%);
+          }
 
           @include lg {
             position: absolute;
